@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { Navbar, Nav, Container } from "react-bootstrap";
@@ -71,19 +71,33 @@ export const NavBar = () => {
 
 export const SettingsDropdown = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dropdownRef = useRef(null);
 
-  const toggleOpen = () => setIsOpen(!isOpen);
+  const handleClickOutside = (event) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="dropdown">
-      <button className="dropdown-button" onClick={toggleOpen}>
+    <div className="dropdown" ref={dropdownRef}>
+      <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faCog} /> Settings
       </button>
-      <div className={`dropdown-content ${isOpen ? 'show' : ''}`}>
-        <a href="#">Setting 1</a>
-        <a href="#">Setting 2</a>
-        <a href="#">Setting 3</a>
-      </div>
+      {isOpen && (
+        <div className="dropdown-content">
+          <a href="#">Setting 1</a>
+          <a href="#">Setting 2</a>
+          <a href="#">Setting 3</a>
+        </div>
+      )}
     </div>
   );
 };
