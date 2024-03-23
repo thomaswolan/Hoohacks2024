@@ -232,9 +232,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Banner Css ************/
 .banner {
-  margin-top: 0;
+  margin-top: -80px;
   padding: 500px 0 500px 0;
-  background-image: url('./assets/img/mountains3.jpg');
+  background-image: url('./assets/img/thing1.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -255,7 +255,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-weight: 700;
   letter-spacing: 0.8px;
   line-height: 1;
-  margin-bottom: 20px;
+  margin-bottom: -45px;
   margin-top: -175px;
   display: block;
   text-align: center;
@@ -268,9 +268,11 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 
 .banner h2 {
-  margin-right: 580px;
-  margin-left: 580px;
-  margin-bottom: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
 }
 
 .banner p {
@@ -303,10 +305,16 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 input[type="text"].modern-search {
+  margin: auto;
+  
+  margin-top: -80px;
   font-size: 18px; /* Increase font size */
   padding: 12px 20px; /* Add more padding for a bigger look */
   height: 50px; /* Set a specific height */
-  width: 100%; /* Make it full width of its container */
+  width: 50%; /* Make it full width of its container */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
   background-color: #f0f0f0; /* Subtle background color */
   border: none; /* Remove border */
   outline: none; /* Remove outline */
@@ -717,11 +725,13 @@ input[type="text"].modern-search:focus {
 .dropdown {
   position: fixed;
   top: 0;
+  margin-top: -36px;
 }
 
 .dropdown-button {
   background-color: transparent;
   color: white;
+  margin-left: 550px;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -735,6 +745,8 @@ input[type="text"].modern-search:focus {
 
 
 .dropdown-content {
+  margin-left: 550px;
+  margin-top: 0;
   display: flex;
   border-radius: 10px; /* Add this line */
   flex-direction: column;
@@ -798,17 +810,14 @@ input[type="text"].modern-search:focus {
   width:100%;
 }
 
-.dropdown-content a::after {
-  content: '';
-  width: 0%; 
-  height: 3px;
-  background: #ff004f;
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  transition: 0.5s;
-}
-
 .dropdown-content a:hover::after {
   width:100%;
+}
+
+
+.banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
