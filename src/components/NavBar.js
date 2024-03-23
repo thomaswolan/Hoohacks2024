@@ -47,8 +47,7 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
-            <SettingsDropdown />
-              <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
+            <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>About Me</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
             </Nav>
@@ -68,45 +67,3 @@ export const NavBar = () => {
     </Router>
   )
 }
-
-export const SettingsDropdown = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef(null);
-
-  const handleClickOutside = (event) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
-      setIsOpen(false);
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, []);
-
-  return (
-    <div className="dropdown" ref={dropdownRef}>
-      <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-        <FontAwesomeIcon icon={faCog} /> Settings
-      </button>
-      {isOpen && (
-        <div className="dropdown-content">
-          <div>
-            <label for="setting1">Setting 1</label>
-            <input type="range" id="setting1" name="setting1" min="0" max="5" />
-          </div>
-          <div>
-            <label for="setting2">Setting 2</label>
-            <input type="range" id="setting2" name="setting2" min="0" max="5" />
-          </div>
-          <div>
-            <label for="setting3">Setting 3</label>
-            <input type="range" id="setting3" name="setting3" min="0" max="5" />
-          </div>
-        </div>
-      )}
-    </div>
-  );
-};
