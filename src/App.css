@@ -233,11 +233,12 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 /************ Banner Css ************/
 .banner {
   margin-top: 0;
-  padding: 260px 0 100px 0;
+  padding: 500px 0 500px 0;
   background-image: url('./assets/img/mountains3.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  text-align: center;
 }
 .banner .tagline {
   font-weight: 700;
@@ -257,7 +258,21 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-bottom: 20px;
   margin-top: -175px;
   display: block;
+  text-align: center;
 }
+
+.text-center-container {
+  text-align: center;
+  width: 100%; 
+}
+
+
+.banner h2 {
+  margin-right: 580px;
+  margin-left: 580px;
+  margin-bottom: 150px;
+}
+
 .banner p {
   color: #B8B8B8;
   font-size: 18px;
@@ -286,6 +301,31 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner img {
   animation: updown 3s linear infinite;
 }
+
+input[type="text"].modern-search {
+  font-size: 18px; /* Increase font size */
+  padding: 12px 20px; /* Add more padding for a bigger look */
+  height: 50px; /* Set a specific height */
+  width: 100%; /* Make it full width of its container */
+  background-color: #f0f0f0; /* Subtle background color */
+  border: none; /* Remove border */
+  outline: none; /* Remove outline */
+  color: #333; /* Text color */
+  border-radius: 25px; /* Rounded corners */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Optional: Add subtle shadow */
+  transition: all 0.3s ease-in-out; /* Smooth transition for interactions */
+}
+
+input[type="text"].modern-search::placeholder {
+  color: #aaa; /* Placeholder text color */
+}
+
+input[type="text"].modern-search:focus {
+  background-color: #e9e9e9; /* Slightly darker background on focus */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2); /* Optional: More prominent shadow on focus */
+}
+
+
 @keyframes updown {
     0% {
         transform: translateY(-20px);
@@ -677,6 +717,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .dropdown {
   position: fixed;
   top: 0;
+  z-index: 9999;
 }
 
 .dropdown-button {
@@ -686,42 +727,18 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   font-size: 16px;
   border: none;
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Add this line */
 }
-
-.dropdown-button:hover {
-  background-color: rgba(255, 255, 255, 0.1); /* Add this line */
-}
-
 
 .dropdown-content {
-  display: flex;
-  border-radius: 10px; /* Add this line */
-  flex-direction: column;
+  display: none;
   position: absolute;
-  justify-content: center;
-  align-items: center;
   background-color: #f9f9f9;
   min-width: 160px;
-  min-height: 150px; 
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 10000; /* Increase this value as needed */
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 2px; /* Add this line */
-  padding-bottom: 6px;
-}
-.dropdown-content input[type="range"] {
-  width: 95%; /* Adjust as needed */
-  margin: auto; /* Centers the slider */
-  display: flex; /* Add this line */
-  justify-content: center; /* Add this line */
-}
-
-.dropdown-content label {
-  margin: 0;
-  color: blue; /* Change this line to the color you want */
 }
 
 .dropdown-content a {
@@ -741,21 +758,6 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .dropdown-content a {
   position: relative;
   display: inline-block;
-}
-
-.dropdown-content a::after {
-  content: '';
-  width: 0%; 
-  height: 3px;
-  background: #ff004f;
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  transition: 0.5s;
-}
-
-.dropdown-content a:hover::after {
-  width:100%;
 }
 
 .dropdown-content a::after {
