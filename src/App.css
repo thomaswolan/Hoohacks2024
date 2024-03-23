@@ -681,7 +681,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 }
 
 .dropdown-button {
-  background-color: #4CAF50;
+  background-color: transparent;
   color: white;
   padding: 16px;
   font-size: 16px;
@@ -696,6 +696,9 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 10000; /* Increase this value as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .dropdown-content a {
@@ -703,8 +706,31 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  width: 100%; 
+  box-sizing: border-box;
+  text-align: center; /* Add this line */
 }
 
 .dropdown-content.show {
   display: block;
+}
+
+.dropdown-content a {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content a::after {
+  content: '';
+  width: 0%; 
+  height: 3px;
+  background: #ff004f;
+  position: absolute;
+  left: 0;
+  bottom: 0px;
+  transition: 0.5s;
+}
+
+.dropdown-content a:hover::after {
+  width:100%;
 }
