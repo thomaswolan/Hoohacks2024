@@ -232,7 +232,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 /************ Banner Css ************/
 .banner {
-  margin-top: 0;
+  margin-top: -80px;
   padding: 500px 0 500px 0;
   background-image: url('./assets/img/thing1.jpg');
   background-position: center;
@@ -725,11 +725,13 @@ input[type="text"].modern-search:focus {
 .dropdown {
   position: fixed;
   top: 0;
+  margin-top: -36px;
 }
 
 .dropdown-button {
   background-color: transparent;
   color: white;
+  margin-left: 550px;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -743,6 +745,8 @@ input[type="text"].modern-search:focus {
 
 
 .dropdown-content {
+  margin-left: 550px;
+  margin-top: 0;
   display: flex;
   border-radius: 10px; /* Add this line */
   flex-direction: column;
@@ -804,17 +808,6 @@ input[type="text"].modern-search:focus {
 
 .dropdown-content a:hover::after {
   width:100%;
-}
-
-.dropdown-content a::after {
-  content: '';
-  width: 0%; 
-  height: 3px;
-  background: #ff004f;
-  position: absolute;
-  left: 0;
-  bottom: 0px;
-  transition: 0.5s;
 }
 
 .dropdown-content a:hover::after {
