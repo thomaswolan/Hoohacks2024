@@ -1,4 +1,7 @@
-import { useState, useEffect } from "react";
+
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCog } from '@fortawesome/free-solid-svg-icons';
 import { Navbar, Nav, Container } from "react-bootstrap";
 import logo from '../assets/img/logo-again.png';
 import navIcon1 from '../assets/img/nav-icon1.svg';
@@ -44,6 +47,7 @@ export const NavBar = () => {
           </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
+            <SettingsDropdown />
               <Nav.Link href="#home" className={activeLink === 'home' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('home')}>Home</Nav.Link>
               <Nav.Link href="#skills" className={activeLink === 'skills' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('skills')}>About Me</Nav.Link>
               <Nav.Link href="#projects" className={activeLink === 'projects' ? 'active navbar-link' : 'navbar-link'} onClick={() => onUpdateActiveLink('projects')}>Projects</Nav.Link>
@@ -64,3 +68,22 @@ export const NavBar = () => {
     </Router>
   )
 }
+
+export const SettingsDropdown = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleOpen = () => setIsOpen(!isOpen);
+
+  return (
+    <div className="dropdown">
+      <button className="dropdown-button" onClick={toggleOpen}>
+        <FontAwesomeIcon icon={faCog} /> Settings
+      </button>
+      <div className={`dropdown-content ${isOpen ? 'show' : ''}`}>
+        <a href="#">Setting 1</a>
+        <a href="#">Setting 2</a>
+        <a href="#">Setting 3</a>
+      </div>
+    </div>
+  );
+};
