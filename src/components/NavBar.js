@@ -93,9 +93,18 @@ export const SettingsDropdown = () => {
       </button>
       {isOpen && (
         <div className="dropdown-content">
-          <a href="#">Setting 1</a>
-          <a href="#">Setting 2</a>
-          <a href="#">Setting 3</a>
+          <div>
+            <label for="setting1">Setting 1</label>
+            <input type="range" id="setting1" name="setting1" min="0" max="5" />
+          </div>
+          <div>
+            <label for="setting2">Setting 2</label>
+            <input type="range" id="setting2" name="setting2" min="0" max="5" />
+          </div>
+          <div>
+            <label for="setting3">Setting 3</label>
+            <input type="range" id="setting3" name="setting3" min="0" max="5" />
+          </div>
         </div>
       )}
     </div>
