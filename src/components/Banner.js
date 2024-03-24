@@ -137,7 +137,7 @@ export const SettingsDropdown = () => {
 
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-        <FontAwesomeIcon icon={faCog} /> Generate Personalized Recommendations
+      <FontAwesomeIcon icon={faCog} style={{ marginRight: '7px' }} /> Generate Personalized Recommendations
       </button>
       {isOpen && (
         <div className="dropdown-content">

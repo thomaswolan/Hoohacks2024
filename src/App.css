@@ -728,7 +728,7 @@ input[type="text"].modern-search:focus {
 .dropdown-button {
   background-color: transparent;
   color: white;
-  margin-left: 550px;
+  margin-left: 389px;
   padding: 16px;
   font-size: 16px;
   border: none;
@@ -737,6 +737,10 @@ input[type="text"].modern-search:focus {
 
 .dropdown-button:hover {
   background-color: rgba(255, 255, 255, 0.1); /* Add this line */
+}
+
+.faCog {
+  margin-right: 7px; /* Adjust the pixels as needed */
 }
 
 
