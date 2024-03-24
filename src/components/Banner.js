@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
 import Button from 'react-bootstrap/Button';
 import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import the arrow right icon
+import { useNavigate } from 'react-router-dom';
+
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -15,6 +17,11 @@ export const Banner = () => {
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(100 - Math.random() * 100);
   const [searchText, setSearchText] = useState(''); 
+  const navigate = useNavigate(); // Use the useNavigate hook
+
+  const handleSearchClick = () => {
+    navigate('/results', { state: { searchText: searchText } }); // Navigate to Results page
+  };
 
   const toRotate = useMemo(() => ["Web Developer", "Software Engineer", "Virginia Tech"], []);
 
@@ -33,8 +40,7 @@ export const Banner = () => {
       <Container>
         <Row className="align-items-center">
           <h1>{`The Future of Investing.`}</h1>
-          {/* Text input for "Find stock" */}
-          <div className="search-bar"> {/* Add this line */}
+          <div className="search-bar">
             <input
               type="text"
               value={searchText}
@@ -42,9 +48,9 @@ export const Banner = () => {
               placeholder="Find stock"
               className="modern-search mt-2"
             />
-            <Button variant="outline-primary" type="submit">
-    <FontAwesomeIcon icon={faArrowRight} /> {/* Use the arrow right icon */}
-          </Button>
+            <Button variant="outline-primary" type="button" onClick={handleSearchClick}>
+              <FontAwesomeIcon icon={faArrowRight} />
+            </Button>
           </div>
         </Row>
         <SettingsDropdown />    
