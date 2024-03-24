@@ -6,6 +6,8 @@ import 'animate.css';
 import TrackVisibility from 'react-on-screen';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCog } from '@fortawesome/free-solid-svg-icons';
+import Button from 'react-bootstrap/Button';
+import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import the arrow right icon
 
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
@@ -30,8 +32,9 @@ export const Banner = () => {
     <section className="banner" id="home">
       <Container>
         <Row className="align-items-center">
-            <h1>{`The Future of Investing.`}</h1>
-            {/* Text input for "Find stock" */}
+          <h1>{`The Future of Investing.`}</h1>
+          {/* Text input for "Find stock" */}
+          <div className="search-bar"> {/* Add this line */}
             <input
               type="text"
               value={searchText}
@@ -39,7 +42,10 @@ export const Banner = () => {
               placeholder="Find stock"
               className="modern-search mt-2"
             />
-          
+            <Button variant="outline-primary" type="submit">
+    <FontAwesomeIcon icon={faArrowRight} /> {/* Use the arrow right icon */}
+          </Button>
+          </div>
         </Row>
         <SettingsDropdown />    
       </Container>
