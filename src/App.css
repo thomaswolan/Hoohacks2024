@@ -762,7 +762,7 @@ input[type="text"].modern-search:focus {
   align-items: center;
   padding-top: 2px; /* Add this line */
   padding-bottom: 6px;
-  
+
 }
 .dropdown-content input[type="range"] {
   width: 95%; /* Adjust as needed */
@@ -821,3 +821,4 @@ input[type="text"].modern-search:focus {
   align-items: center;
   flex-direction: column;
 }
+
