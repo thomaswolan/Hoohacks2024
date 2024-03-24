@@ -763,6 +763,17 @@ input[type="text"].modern-search:focus {
   align-items: center;
   padding-top: 2px; /* Add this line */
   padding-bottom: 6px;
+  opacity: 0; /* Make it invisible initially */
+  transform: translateY(-20px); /* Move it up a bit initially */
+  transition: opacity 0.5s ease, transform 0.5s ease; /* Smooth transition for both properties */
+  pointer-events: none; /* Prevent interaction when it's not visible */
+
+.dropdown-content.visible {
+  opacity: 1; /* Fully visible */
+  transform: translateY(0); /* Move to natural position */
+  pointer-events: auto; /* Allow interaction */
+}
+  
 }
 .dropdown-content input[type="range"] {
   width: 95%; /* Adjust as needed */
