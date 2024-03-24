@@ -11,14 +11,17 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import the 
 import { useNavigate } from 'react-router-dom';
 
 
+
+
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(100 - Math.random() * 100);
   const [searchText, setSearchText] = useState(''); 
-  const navigate = useNavigate(); // Use the useNavigate hook
+   // Use the useNavigate hook
 
+  
   const handleSearchClick = () => {
     navigate('/results', { state: { searchText: searchText } }); // Navigate to Results page
   };
@@ -35,6 +38,16 @@ export const Banner = () => {
     setSearchText(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    // Check if the Enter key was pressed
+    if (event.key === 'Enter') {
+      // Prevent the default action to avoid submitting the form (if any)
+      event.preventDefault();
+      // Navigate to the Results page and pass the search text as state
+      navigate('/results', { state: { searchText } });
+    }
+  };
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -45,6 +58,7 @@ export const Banner = () => {
               type="text"
               value={searchText}
               onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
               placeholder="Find stock"
               className="modern-search mt-2"
             />
@@ -77,7 +91,11 @@ export const SettingsDropdown = () => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
   return (
+    
+  
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faCog} /> Settings
@@ -85,19 +103,35 @@ export const SettingsDropdown = () => {
       {isOpen && (
         <div className="dropdown-content">
           <div>
-            <label for="setting1">Setting 1</label>
+            <label htmlFor="setting1">Setting 1</label>
             <input type="range" id="setting1" name="setting1" min="0" max="5" />
           </div>
           <div>
-            <label for="setting2">Setting 2</label>
+            <label htmlFor="setting2">Setting 2</label>
             <input type="range" id="setting2" name="setting2" min="0" max="5" />
           </div>
           <div>
-            <label for="setting3">Setting 3</label>
+            <label htmlFor="setting3">Setting 3</label>
             <input type="range" id="setting3" name="setting3" min="0" max="5" />
           </div>
+          <div>
+            <label htmlFor="setting4">Setting 4</label>
+            <input type="range" id="setting4" name="setting4" min="0" max="1" />
+          </div>
+            <div className="setting">
+              <label htmlFor="setting5">Setting 5</label>
+              <input type="range" id="setting5" name="setting5" min="0" max="1" />
+              
+              </div> 
+              <div>
+              
+
+              <button className="submit-button" onClick={() => navigate('/new-page')}>Submit</button>
         </div>
+          </div>
+      
       )}
+    
     </div>
   );
 };

@@ -234,10 +234,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 .banner {
   margin-top: -80px;
   padding: 500px 0 500px 0;
-  background-image: url('./assets/img/thing1.jpg');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  
   text-align: center;
 }
 .banner .tagline {
@@ -754,7 +751,8 @@ input[type="text"].modern-search:focus {
   align-items: center;
   background-color: #f9f9f9;
   min-width: 160px;
-  min-height: 150px; 
+  
+  min-height: 100px; 
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 10000; /* Increase this value as needed */
   display: flex;
@@ -877,4 +875,48 @@ input[type="text"].modern-search:focus {
   transform: translateY(-50%);
   background-color: rgb(57, 57, 183); /* Add this line */
   border-radius: 25px;
+}
+
+
+#background-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  transform: translateX(-50%) translateY(-50%);
+  background-size: cover;
+  object-fit: cover;
+
+}
+.dropdown-content div:last-of-type {
+  margin-bottom: 0;
+}
+
+.submit-button {
+  margin-top: 0;
+  /* rest of your styles */
+}
+
+.submit-button {
+  margin-top: 0;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  transition-duration: 0.4s;
+}
+.setting {
+  margin-bottom: 0; /* Adjust as needed */
+}
+
+.submit-button:hover {
+  background-color: #45a049;
 }
