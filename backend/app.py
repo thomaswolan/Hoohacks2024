@@ -121,3 +121,7 @@ def search():
 
     # returning result
     return jsonify(result)
+
+
+if __name__ == "__app__":
+    app.run(debug=True)
