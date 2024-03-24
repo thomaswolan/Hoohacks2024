@@ -15,7 +15,7 @@ RUN apt-get update && apt-get install -y nodejs npm
 # Install frontend dependencies and build
 
 COPY ./data ./data
-COPY ./node_modules ./node_modules
+# COPY ./node_modules ./node_modules
 COPY ./public ./public
 COPY ./src ./src
 COPY ./package.json .

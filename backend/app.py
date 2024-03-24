@@ -22,10 +22,6 @@ def predict():
             columns={"Betashort": "Beta", "AnnualReturnShort": "AnnualReturn"}
         )
     else:
-<<<<<<< HEAD
-        df = df.drop(["Volatility1Y", "Betashort"], axis=1)
-        
-=======
         df = df.drop(["Betashort", "AnnualReturnShort"], axis=1)
         df = df.rename(columns={"Betalong": "Beta", "AnnualReturnLong": "AnnualReturn"})
 
@@ -125,4 +121,3 @@ def search():
 
     # returning result
     return jsonify(result)
->>>>>>> d2c84c468eff102d53062743bf69f30a0ddde3b2
