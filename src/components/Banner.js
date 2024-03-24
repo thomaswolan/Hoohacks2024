@@ -77,7 +77,7 @@ export const Banner = () => {
               value={searchText}
               onChange={handleInputChange}
               onKeyDown={handleKeyDown}
-              placeholder="Find stock"
+              placeholder="Find stock by name - Ex: GOOG, AAPL, AMZN, etc."
               className="modern-search mt-2"
             />
             <Button variant="outline-primary" type="button" onClick={handleSearchClick}>
@@ -137,7 +137,7 @@ export const SettingsDropdown = () => {
 
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
-        <FontAwesomeIcon icon={faCog} /> Settings
+        <FontAwesomeIcon icon={faCog} /> Generate Personalized Recommendations
       </button>
       {isOpen && (
         <div className="dropdown-content">
