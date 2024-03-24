@@ -18,10 +18,10 @@ export const Banner = () => {
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(100 - Math.random() * 100);
-  const [searchText, setSearchText] = useState(''); 
-   // Use the useNavigate hook
+  const [searchText, setSearchText] = useState('');
+  // Use the useNavigate hook
 
-   const navigate = useNavigate();
+  const navigate = useNavigate();
   const handleSearchClick = () => {
     navigate('/results', { state: { searchText: searchText } }); // Navigate to Results page
   };
@@ -85,7 +85,7 @@ export const Banner = () => {
             </Button>
           </div>
         </Row>
-        <SettingsDropdown />    
+        <SettingsDropdown />
       </Container>
     </section>
   );
@@ -103,27 +103,25 @@ export const SettingsDropdown = () => {
   };
 
   const handleClick = async () => {
-    const setting1 = document.getElementById('setting1').value;
-    const setting2 = document.getElementById('setting2').value;
-    const setting3 = document.getElementById('setting3').value;
-    const setting4 = document.getElementById('setting4').value;
-    const setting5 = document.getElementById('setting5').value;
-  
+    const Risk = document.getElementById('Risk').value;
+    const term = document.getElementById('term').value;
+    const diversification = document.getElementById('diversification').value;
+
     const response = await fetch('http://127.0.0.1:5000/results', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ setting1, setting2, setting3, setting4, setting5 })
+      body: JSON.stringify({ Risk, term, diversification })
     });
-  
+
     if (response.ok) {
       navigate('/results'); // Navigate to the Results page
     } else {
       // handle error
     }
   };
-  
+
   <button className="submit-button" onClick={handleClick}>Submit</button>
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
@@ -135,8 +133,8 @@ export const SettingsDropdown = () => {
   const navigate = useNavigate();
 
   return (
-    
-  
+
+
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faCog} /> Settings
@@ -144,35 +142,27 @@ export const SettingsDropdown = () => {
       {isOpen && (
         <div className="dropdown-content">
           <div>
-            <label htmlFor="setting1">Setting 1</label>
-            <input type="range" id="setting1" name="setting1" min="0" max="5" />
+            <label htmlFor="Risk">Risk</label>
+            <input type="range" id="Risk" name="Risk" min="0" max="5" />
           </div>
           <div>
-            <label htmlFor="setting2">Setting 2</label>
-            <input type="range" id="setting2" name="setting2" min="0" max="5" />
+            <label htmlFor="term">Short Term on/off</label>
+            <input type="range" id="term" name="term" min="0" max="1" />
           </div>
-          <div>
-            <label htmlFor="setting3">Setting 3</label>
-            <input type="range" id="setting3" name="setting3" min="0" max="5" />
-          </div>
-          <div>
-            <label htmlFor="setting4">Setting 4</label>
-            <input type="range" id="setting4" name="setting4" min="0" max="1" />
-          </div>
-            <div className="setting">
-              <label htmlFor="setting5">Setting 5</label>
-              <input type="range" id="setting5" name="setting5" min="0" max="1" />
-              
-              </div> 
-              <div>
-              
+          <div className="setting">
+            <label htmlFor="diversification">Diversification on/off</label>
+            <input type="range" id="diversification" name="setting5" min="0" max="1" />
 
-              <button className="submit-button" onClick={handleClick}>Submit</button>
-        </div>
           </div>
-      
+          <div>
+
+
+            <button className="submit-button" onClick={handleClick}>Submit</button>
+          </div>
+        </div>
+
       )}
-    
+
     </div>
   );
 };
