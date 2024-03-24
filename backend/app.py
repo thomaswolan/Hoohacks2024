@@ -9,7 +9,7 @@ import pandas as pd
 app = Flask(__name__)
 
 
-@app.route("/", methods=["POST"])
+@app.route("/results", methods=["POST"])
 def predict():
     df = pd.read_csv("data/SP500.csv")
     short_term = request.json["short_term"]

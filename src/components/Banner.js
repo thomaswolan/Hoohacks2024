@@ -84,6 +84,29 @@ export const SettingsDropdown = () => {
     }
   };
 
+  const handleClick = async () => {
+    const setting1 = document.getElementById('setting1').value;
+    const setting2 = document.getElementById('setting2').value;
+    const setting3 = document.getElementById('setting3').value;
+    const setting4 = document.getElementById('setting4').value;
+    const setting5 = document.getElementById('setting5').value;
+  
+    const response = await fetch('http://localhost:5000/results', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ setting1, setting2, setting3, setting4, setting5 })
+    });
+  
+    if (response.ok) {
+      navigate('/results'); // Navigate to the Results page
+    } else {
+      // handle error
+    }
+  };
+  
+  <button className="submit-button" onClick={handleClick}>Submit</button>
   useEffect(() => {
     document.addEventListener('mousedown', handleClickOutside);
     return () => {
@@ -126,7 +149,7 @@ export const SettingsDropdown = () => {
               <div>
               
 
-              <button className="submit-button" onClick={() => navigate('/new-page')}>Submit</button>
+              <button className="submit-button" onClick={handleClick}>Submit</button>
         </div>
           </div>
       
