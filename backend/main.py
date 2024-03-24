@@ -18,15 +18,17 @@ app = Flask(__name__)
 #     # process data here
 #     return 'Success!', 200
 CORS(app)
+
+
 @app.route("/results", methods=["POST"])
 def predict():
     data = request.get_json()
     print(data)
     df = pd.read_csv("data/SP500.csv")
-    short_term = request.json["setting1"]
+    short_term = int(data["term"])
     print(short_term)
-    diversification = request.json["diversification"]
-    risk = request.json["risk"]
+    diversification = int(data["diversification"])
+    risk = int(data["Risk"])
 
     if short_term == 1:
         df = df.drop(["Betalong", "AnnualReturnLong"], axis=1)
@@ -113,16 +115,22 @@ def predict():
         for index, row in ranked_df.iterrows():
             if len(result) == 5:
                 break
-            if row["sector"] not in sectors:
-                sectors.append(row["sector"])
+            if row["Sector"] not in sectors:
+                sectors.append(row["Sector"])
                 result[index] = row.to_dict()
+    else:
+        for index, row in ranked_df.iterrows():
+            if len(result) == 5:
+                break
+            result[index] = row.to_dict()
 
+    print(result)
     return jsonify(result)
 
 
 @app.route("/search", methods=["POST"])
 def search():
-    ticker = request.json
+    ticker = request.get_json()["ticker"]
     result = dict()
 
     result["name"] = yf.Ticker(ticker).info["longName"]
