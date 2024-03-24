@@ -91,7 +91,7 @@ export const SettingsDropdown = () => {
     const setting4 = document.getElementById('setting4').value;
     const setting5 = document.getElementById('setting5').value;
   
-    const response = await fetch('http://127.0.0.1:5000', {
+    const response = await fetch('http://127.0.0.1:5000/results', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

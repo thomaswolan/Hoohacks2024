@@ -5,14 +5,26 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 import numpy as np
 import pandas as pd
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 
+# app = Flask(__name__)
+
+# @app.route("/results", methods=["POST"])
+# def handle_post():
+#     data = request.get_json()
+#     # process data here
+#     return 'Success!', 200
+CORS(app)
 @app.route("/results", methods=["POST"])
 def predict():
+    data = request.get_json()
+    print(data)
     df = pd.read_csv("data/SP500.csv")
-    short_term = request.json["short_term"]
+    short_term = request.json["setting1"]
+    print(short_term)
     diversification = request.json["diversification"]
     risk = request.json["risk"]
 
