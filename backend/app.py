@@ -18,3 +18,4 @@ def predict():
         df = df.drop(["Volatility5Y", "Betalong"], axis=1)
     else:
         df = df.drop(["Volatility1Y", "Betashort"], axis=1)
+        
