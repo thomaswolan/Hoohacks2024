@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 // ... other imports ...
 import React, { useState, useEffect, } from 'react';
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/logo-again.png';
+import logo from '../assets/img/logo-apollo-new.png';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
@@ -34,7 +34,7 @@ export const NavBar = () => {
     <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
       <Container>
         <Navbar.Brand as={Link} to="/">
-          <img src={logo} alt="Logo" />
+          <img src={logo} alt="Logo" style={{ width: "250px", height: "83.5px" }}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav">
           <span className="navbar-toggler-icon"></span>
