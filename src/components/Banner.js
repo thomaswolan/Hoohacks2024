@@ -71,7 +71,25 @@ export const SettingsDropdown = () => {
     };
   }, []);
 
+  function SettingsDropdownForm() {
+    const history = useHistory();
+  
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      const setting1 = event.target.elements.setting1.value;
+      const setting2 = event.target.elements.setting2.value;
+      const setting3 = event.target.elements.setting3.value;
+      const setting4 = event.target.elements.setting4.value;
+      const setting5 = event.target.elements.setting5.value;
+  
+      // Navigate to a new page and pass the settings as state
+      history.push('/new-page', { setting1, setting2, setting3, setting4, setting5 });
+    };
+  }
+
   return (
+    
+  
     <div className="dropdown" ref={dropdownRef}>
       <button className="dropdown-button" onClick={() => setIsOpen(!isOpen)}>
         <FontAwesomeIcon icon={faCog} /> Settings
@@ -79,19 +97,33 @@ export const SettingsDropdown = () => {
       {isOpen && (
         <div className="dropdown-content">
           <div>
-            <label for="setting1">Setting 1</label>
+            <label htmlFor="setting1">Setting 1</label>
             <input type="range" id="setting1" name="setting1" min="0" max="5" />
           </div>
           <div>
-            <label for="setting2">Setting 2</label>
+            <label htmlFor="setting2">Setting 2</label>
             <input type="range" id="setting2" name="setting2" min="0" max="5" />
           </div>
           <div>
-            <label for="setting3">Setting 3</label>
+            <label htmlFor="setting3">Setting 3</label>
             <input type="range" id="setting3" name="setting3" min="0" max="5" />
           </div>
+          <div>
+            <label htmlFor="setting4">Setting 4</label>
+            <input type="range" id="setting4" name="setting4" min="0" max="1" />
+          </div>
+            <div className="setting">
+              <label htmlFor="setting5">Setting 5</label>
+              <input type="range" id="setting5" name="setting5" min="0" max="1" />
+              
+              </div> 
+              <div>
+            <button className="submit-button" onClick={SettingsDropdownForm}>Submit</button>
         </div>
+          </div>
+      
       )}
+    
     </div>
   );
 };
