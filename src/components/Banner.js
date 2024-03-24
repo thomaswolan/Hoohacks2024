@@ -21,7 +21,7 @@ export const Banner = () => {
   const [searchText, setSearchText] = useState(''); 
    // Use the useNavigate hook
 
-  
+   const navigate = useNavigate();
   const handleSearchClick = () => {
     navigate('/results', { state: { searchText: searchText } }); // Navigate to Results page
   };
