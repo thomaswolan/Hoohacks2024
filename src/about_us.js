@@ -3,16 +3,15 @@ import backgroundImage from './assets/img/thing1.jpg';
 
 function AboutUs() {
   return (
-    <div style={{ 
-      paddingTop: '100px',
+    <div style={{ paddingTop: '150px',
       display: 'flex',
       flexDirection: 'column',
       minHeight: '100vh',
       backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'cover', // Add this line
-      backgroundPosition: 'center' // Add this line
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
     }}>
-      <div style={{ flex: '1 0 auto' }}>
+      <div style={{ flex: '1 0 auto', marginLeft: '50px' }}> {/* Add this line */}
         <h1>About Us</h1>
         <p>We are a team of dedicated software developers passionate about creating innovative solutions. Our mission is to deliver high-quality software that meets the needs of our clients and exceeds their expectations.</p>
         <h2>Our Team</h2>
