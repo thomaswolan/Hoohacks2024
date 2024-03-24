@@ -58,7 +58,7 @@ export const Banner = () => {
         // If the request was successful, navigate to the Results page
         // You can also pass any response data you might need on the Results page as state
         const responseData = await response.json(); // Assuming the backend sends back some data
-        navigate('/results', { state: { responseData } }); // Pass the responseData as state to the Results page
+        navigate('/search', { state: { responseData } }); // Pass the responseData as state to the Results page
       } else {
         // Handle any errors, e.g., showing an error message to the user
         console.error('Failed to fetch search results');

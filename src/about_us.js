@@ -1,27 +1,18 @@
 import React from 'react';
 import backgroundImage from './assets/img/thing1.jpg';
+import './App.css'; // Ensure you import the CSS file
 
 function AboutUs() {
   return (
-    <div style={{ paddingTop: '150px',
-      display: 'flex',
-      flexDirection: 'column',
-      minHeight: '100vh',
-      backgroundImage: `url(${backgroundImage})`,
-      backgroundSize: 'cover',
-      backgroundPosition: 'center'
-    }}>
-      <div style={{ flex: '1 0 auto', marginLeft: '50px' }}> {/* Add this line */}
+    <div className="aboutus-background">
+      <div className="aboutus-container">
         <h1>About Us</h1>
-        <p>We are a team of dedicated software developers passionate about creating innovative solutions. Our mission is to deliver high-quality software that meets the needs of our clients and exceeds their expectations.</p>
+        <p>Our goal was to demystify the stock market for beginners. We recognized the potential in leveraging technology to simplify the investment process, making it accessible and engaging for everyone. Apollo.ai stands as a testament to our commitment, offering a user-friendly interface that opens the doors to the world of stocks like never before.</p>
         <h2>Our Team</h2>
         <p>Our team is composed of experienced developers, designers, and project managers who work collaboratively to deliver successful projects.</p>
         <h2>Contact Us</h2>
-        <p>If you have any questions or would like to discuss a potential project, please contact us at info@ourcompany.com.</p>
+        <p>If you have any questions or would like to discuss a potential project, please contact us at fake_email@ourcompany.com.</p>
       </div>
-      <footer style={{ flexShrink: '0' }}>
-        {/* Your footer content goes here */}
-      </footer>
     </div>
   );
 }

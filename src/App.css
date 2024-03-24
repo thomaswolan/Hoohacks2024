@@ -920,3 +920,27 @@ input[type="text"].modern-search:focus {
 .submit-button:hover {
   background-color: #45a049;
 }
+
+/* About_us.js */
+.aboutus-background {
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  minHeight: 100vh;
+  backgroundImage: url('./assets/img/thing1.jpg');
+  backgroundSize: cover;
+  backgroundPosition: center;
+}
+
+.aboutus-container {
+  max-width: 800px; /* Adjust based on your content */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 20px; /* Ensures some spacing on smaller screens */
+}
+
+/* Add any additional styles for h1, h2, p here to fit the theme */
