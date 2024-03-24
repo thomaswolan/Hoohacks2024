@@ -941,6 +941,20 @@ input[type="text"].modern-search:focus {
   border-radius: 15px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 20px; /* Ensures some spacing on smaller screens */
+  margin-top: 75px;
+  margin-bottom: 150px;
+}
+
+.aboutus-container h1 {
+  color: black; /* Replace #colorCodeForH1 with your desired color code for h1 */
+}
+
+.aboutus-container h2 {
+  color: black; /* Replace #colorCodeForH2 with your desired color code for h2 */
+}
+
+.aboutus-container p {
+  color: black; /* Replace #colorCodeForP with your desired color code for paragraphs */
 }
 
 /* Add any additional styles for h1, h2, p here to fit the theme */
