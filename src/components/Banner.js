@@ -38,13 +38,31 @@ export const Banner = () => {
     setSearchText(event.target.value);
   };
 
-  const handleKeyDown = (event) => {
+  const handleKeyDown = async (event) => {
     // Check if the Enter key was pressed
     if (event.key === 'Enter') {
       // Prevent the default action to avoid submitting the form (if any)
       event.preventDefault();
-      // Navigate to the Results page and pass the search text as state
-      navigate('/results', { state: { searchText } });
+  
+      // Assuming your backend expects a POST request to a specific endpoint to handle the search
+      // Replace 'http://localhost:5000/search' with your actual backend endpoint
+      const response = await fetch('http://localhost:5000/search', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ searchText }),
+      });
+  
+      if (response.ok) {
+        // If the request was successful, navigate to the Results page
+        // You can also pass any response data you might need on the Results page as state
+        const responseData = await response.json(); // Assuming the backend sends back some data
+        navigate('/results', { state: { responseData } }); // Pass the responseData as state to the Results page
+      } else {
+        // Handle any errors, e.g., showing an error message to the user
+        console.error('Failed to fetch search results');
+      }
     }
   };
 
