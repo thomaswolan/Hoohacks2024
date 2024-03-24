@@ -11,14 +11,17 @@ import { faArrowRight } from '@fortawesome/free-solid-svg-icons'; // Import the 
 import { useNavigate } from 'react-router-dom';
 
 
+
+
 export const Banner = () => {
   const [loopNum, setLoopNum] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
   const [text, setText] = useState('');
   const [delta, setDelta] = useState(100 - Math.random() * 100);
   const [searchText, setSearchText] = useState(''); 
-  const navigate = useNavigate(); // Use the useNavigate hook
+   // Use the useNavigate hook
 
+  
   const handleSearchClick = () => {
     navigate('/results', { state: { searchText: searchText } }); // Navigate to Results page
   };
@@ -88,21 +91,7 @@ export const SettingsDropdown = () => {
     };
   }, []);
 
-  function SettingsDropdownForm() {
-    const history = useHistory();
-  
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      const setting1 = event.target.elements.setting1.value;
-      const setting2 = event.target.elements.setting2.value;
-      const setting3 = event.target.elements.setting3.value;
-      const setting4 = event.target.elements.setting4.value;
-      const setting5 = event.target.elements.setting5.value;
-  
-      // Navigate to a new page and pass the settings as state
-      history.push('/new-page', { setting1, setting2, setting3, setting4, setting5 });
-    };
-  }
+  const navigate = useNavigate();
 
   return (
     
@@ -135,7 +124,9 @@ export const SettingsDropdown = () => {
               
               </div> 
               <div>
-            <button className="submit-button" onClick={SettingsDropdownForm}>Submit</button>
+              
+
+              <button className="submit-button" onClick={() => navigate('/new-page')}>Submit</button>
         </div>
           </div>
       
