@@ -21,7 +21,7 @@ COPY ./src ./src
 COPY ./package.json .
 COPY ./package-lock.json .
 RUN npm install
-RUN npm start
+RUN npm run build
 
 #Expose port 5000
 EXPOSE 5000
