@@ -822,3 +822,59 @@ input[type="text"].modern-search:focus {
   flex-direction: column;
 }
 
+.navbar-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 18%;
+  width: 62%;
+  height: 3px;
+  background: #ffffff; /* Change this to the color you want for the line */
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease-in-out;
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in;
+}
+.fade-exit {
+  opacity: 1;
+}
+.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in;
+}
+
+.btn:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.search-bar {
+  position: relative;
+}
+
+
+.search-bar button {
+  position: absolute;
+  right: 345px;
+  top: -46%;
+  transform: translateY(-50%);
+  background-color: rgb(57, 57, 183); /* Add this line */
+  border-radius: 25px;
+}

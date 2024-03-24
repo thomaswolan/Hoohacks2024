@@ -1,5 +1,8 @@
 # this is the backend file
 from flask import Flask, request, jsonify
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.model_selection import train_test_split
+import numpy as np
 import pandas as pd
 
 app = Flask(__name__)
@@ -15,7 +18,7 @@ def predict():
         risk = request.json["risk"]
 
     if short_term == 1:
-        df = df.drop(["Volatility5Y", "Betalong"], axis=1)
+        df = df.drop(["Betalong", "AnnualReturnLong"], axis=1)
     else:
         df = df.drop(["Volatility1Y", "Betashort"], axis=1)
         
