@@ -35,6 +35,16 @@ export const Banner = () => {
     setSearchText(event.target.value);
   };
 
+  const handleKeyDown = (event) => {
+    // Check if the Enter key was pressed
+    if (event.key === 'Enter') {
+      // Prevent the default action to avoid submitting the form (if any)
+      event.preventDefault();
+      // Navigate to the Results page and pass the search text as state
+      navigate('/results', { state: { searchText } });
+    }
+  };
+
   return (
     <section className="banner" id="home">
       <Container>
@@ -45,6 +55,7 @@ export const Banner = () => {
               type="text"
               value={searchText}
               onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
               placeholder="Find stock"
               className="modern-search mt-2"
             />
